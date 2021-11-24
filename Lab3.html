@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+    var path = ['logo1.jpg', 'logo2.jpg','logo3.jpg', 'logo4.jpg']
+    var imageField;
+    let example_var;
+    function changeImage() {
+        document.getElementById("img").src=path[0];
+        path.push(path.splice(0,1));
+    }
+
+    function goSetInterval() {
+
+example_var= setInterval("changeImage()", 1000);
+
+}
+
+function stopSetInterval() {
+    clearInterval(example_var);
+}
+
+
+</script>
+<style type="text/css">
+   .main { 
+width: 256px;
+height: 250px;
+   }
+  </style>
+</head>
+<body>
+    <div class="main" >
+    <img id="img" src="logo1.jpg" width="256" />
+</div>
+    <input type="button" value="Автоматический" onclick="goSetInterval();"/>
+        <input type="button" value="Стоп" onclick="stopSetInterval();">
+        <input type="button" value="Ручной" onclick="changeImage();">
+
+</body>
+</html>
